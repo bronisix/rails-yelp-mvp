@@ -1,0 +1,27 @@
+<div>
+<h1> <%= @restaurant.name %> </h1>
+</div>
+<hr>
+
+<p> <%= @restaurant.address %></p>
+<p> <%= @restaurant.phone_number %></p>
+<p> 🍽 <%= @restaurant.category.capitalize %></p>
+
+<div class="d-flex justify-content-between align-items-center">
+  <h2>Commentaires</h2>
+<p><%= link_to "nouveau commentaire", new_restaurant_review_path(@restaurant) %></p>
+
+  </div>
+    <hr>
+    <% @reviews.each do |review| %>
+    <ul style='list-style:none' class="list-group">
+      <li>
+      <%= review.content %>
+      <br>
+      <%= review.rating %>/5
+      </li>
+
+    </ul>
+
+  <hr>
+<% end %>
